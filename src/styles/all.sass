@@ -1,0 +1,131 @@
+@import "variables"
+@import "~bulma"
+
+html
+  background: transparent
+  background-color: #5a727009
+  background-attachment: fixed
+
+body
+  padding-bottom: 3rem
+  min-height: 100vh
+
+// Front Page Hero text
+$d-from-center: 1.24em
+$f-size-var: 6vw
+$f-size-const: 1.3rem
+$f-size-small: "0.6vw + 0.8rem"
+$line-height-step: 0.59em
+$top-margin: "3.5vw + 3rem"
+
+.hero
+  width: 100%
+  height: calc(20vw + 15rem)
+  margin-bottom: $top-margin
+  position: relative
+  font-size: calc(#{$f-size-var} + #{$f-size-const})
+  line-height: 1
+  font-weight: bold
+
+  &-title
+    &-1
+      position: absolute
+      left: calc(50% - #{$d-from-center} - 1em)
+      transform: translateX(-50%)
+      display: inline-block
+      top: calc(#{$top-margin})
+      z-index: 2
+      font-weight: $weight-bold
+      font-size: calc(#{$f-size-var} + #{$f-size-const})
+
+    &-2
+      position: absolute
+      left: calc(50% + #{$d-from-center} - 0.32em)
+      transform: translateX(-50%)
+      display: inline-block
+      top: calc(#{$top-margin} + #{$line-height-step})
+      z-index: 1
+      color: $primary
+      font-weight: $weight-bold
+      font-size: calc(#{$f-size-var} + #{$f-size-const})
+
+    &-sub
+      position: absolute
+      left: calc(50% + 2.5vw)
+      transform: translateX(-50%)
+      top: calc(#{$top-margin} + 10vw + 3rem)
+      font-size: calc(#{$f-size-small})
+      width: 100%
+      max-width: 28em
+      padding: 0
+      line-height: 1.1
+      font-family: $family-sans-serif
+
+// Navigation
+.navbar
+  background-color: transparent
+  &-brand
+    justify-content: center
+  &-item
+    padding: 0.5rem 1.5rem
+  &-icons
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+  &-icon
+    display: flex !important
+    align-items: center
+
+// Blog Roll
+$f-size: 1.4rem
+$first-letter-f-multiplier: 6
+
+.blog-roll
+  &-item
+    display: block
+    color: $grey-dark
+
+    &:hover
+      color: $link
+
+    &::first-letter
+      font-size: $f-size * $first-letter-f-multiplier
+      line-height: 0.8
+      margin-bottom: 6rem
+      float: left
+      font-weight: normal
+
+    h2
+      margin-bottom: 0.2em
+      font-weight: $weight-bold
+      font-size: $f-size
+
+    p
+      font-size: 1rem
+      font-family: $family-sans-serif
+
+.content
+  padding: 0
+  display: flex
+  flex-direction: column
+  width: 100%
+  max-width: 45rem
+  margin: 0 auto
+
+.signature
+  margin-top: 2em
+  font-style: italic
+
+// Footer
+.footer-line
+  width: 10rem
+  height: 0.2rem
+  background-color: $grey-light
+  padding: 1rem
+
+.photographer
+  margin-top: 4em
+
+h1, h2, h3, h4, h5, h6
+  font-family: $family-serif
