@@ -47,7 +47,7 @@ BlogPostTemplate.propTypes = {
   featuredimage: PropTypes.shape({
     alt: PropTypes.string,
     childImageSharp: PropTypes.object,
-    image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
+    image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     style: PropTypes.object
   }).isRequired,
   photographername: PropTypes.string,
@@ -95,8 +95,7 @@ BlogPost.propTypes = {
         featuredimage: PropTypes.shape({
           alt: PropTypes.string,
           childImageSharp: PropTypes.object,
-          image: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-            .isRequired,
+          image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
           style: PropTypes.object
         }),
         photographername: PropTypes.string,
