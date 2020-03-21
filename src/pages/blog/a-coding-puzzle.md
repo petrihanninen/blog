@@ -9,6 +9,8 @@ description: >
   What to do when you're bored
 ---
 
+Read part two [here](/blog/a-coding-puzzle-pt-2)
+
 ## A New Kind of Challenge
 
 Today I gave a shot at something I've never done - a coding [puzzle / game](https://tracking-game.reaktor.com/) made by Reaktor.
@@ -94,4 +96,4 @@ Yay, we did it!
 
 Solving Mission 001 took a couple of hours, a lot of googling and some cheating. It wasn't the most glorious start, but I'm happy enough that I got it done. I think doing these challenges is very worth while for learning the problem solving mindset and attitude, so maybe I'll be doing more.
 
-This ended up becoming quite a long post, so I think I'll leave talking about the rest of the puzzle to other posts. Thanks for sticking through until the end to probably at this point nobody but myself :)
+This ended up becoming quite a long post, so I think I'll leave talking about the rest of the puzzle to other posts ([check out part 2 here](/blog/a-coding-puzzle-pt-2)). Thanks for sticking through until the end to probably at this point nobody but myself :)
