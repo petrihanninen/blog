@@ -24,7 +24,7 @@ export const BlogPostTemplate = ({
       {helmet || ''}
       <HeaderImage imageInfo={featuredimage} />
       <section className="section">
-        <div className="content">
+        <main className="content">
           <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
             {title}
           </h1>
@@ -33,7 +33,7 @@ export const BlogPostTemplate = ({
           {photographername && (
             <PhotoCredits name={photographername} url={photographerurl} />
           )}
-        </div>
+        </main>
       </section>
     </>
   );

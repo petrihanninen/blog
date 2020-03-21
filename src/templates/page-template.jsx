@@ -9,12 +9,12 @@ export const PageTemplate = ({ title, content, contentComponent }) => {
 
   return (
     <section className="section">
-      <div className="content">
+      <main className="content">
         <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
           {title}
         </h2>
         <PageContent className="content" content={content} />
-      </div>
+      </main>
     </section>
   );
 };
