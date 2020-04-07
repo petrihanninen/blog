@@ -15,14 +15,15 @@ export const BlogPostTemplate = ({
   helmet,
   featuredimage,
   photographername,
-  photographerurl
+  photographerurl,
+  preview
 }) => {
   const PostContent = contentComponent || Content;
 
   return (
     <>
       {helmet || ''}
-      <HeaderImage imageInfo={featuredimage} />
+      {preview || <HeaderImage imageInfo={featuredimage} />}
       <section className="section">
         <main className="content">
           <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
@@ -51,12 +52,14 @@ BlogPostTemplate.propTypes = {
     style: PropTypes.object
   }).isRequired,
   photographername: PropTypes.string,
-  photographerurl: PropTypes.string
+  photographerurl: PropTypes.string,
+  preview: PropTypes.bool
 };
 
 BlogPostTemplate.defaultProps = {
   photographername: null,
-  photographerurl: null
+  photographerurl: null,
+  preview: false
 };
 
 const BlogPost = ({ data }) => {
