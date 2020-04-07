@@ -13,6 +13,7 @@ export const IndexPageTemplate = ({ title1, title2, heading }) => (
         <div className="hero-title-2">{title2}</div>
         <div
           className="hero-title-sub"
+          /* eslint-disable-next-line react/no-danger */
           dangerouslySetInnerHTML={{ __html: heading }}
         />
       </h1>

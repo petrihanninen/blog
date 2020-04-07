@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const HTMLContent = ({ content, className }) => (
+  /* eslint-disable-next-line react/no-danger */
   <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
 );
 
