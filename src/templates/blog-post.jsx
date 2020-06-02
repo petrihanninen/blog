@@ -16,14 +16,14 @@ export const BlogPostTemplate = ({
   featuredimage,
   photographername,
   photographerurl,
-  preview
+  preview,
 }) => {
   const PostContent = contentComponent || Content;
 
   return (
     <>
       {helmet || ''}
-      {preview || <HeaderImage imageInfo={featuredimage} />}
+      {preview || (featuredimage && <HeaderImage imageInfo={featuredimage} />)}
       <section className="section">
         <main className="content">
           <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
@@ -49,17 +49,17 @@ BlogPostTemplate.propTypes = {
     alt: PropTypes.string,
     childImageSharp: PropTypes.object,
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    style: PropTypes.object
+    style: PropTypes.object,
   }).isRequired,
   photographername: PropTypes.string,
   photographerurl: PropTypes.string,
-  preview: PropTypes.bool
+  preview: PropTypes.bool,
 };
 
 BlogPostTemplate.defaultProps = {
   photographername: null,
   photographerurl: null,
-  preview: false
+  preview: false,
 };
 
 const BlogPost = ({ data }) => {
@@ -99,13 +99,13 @@ BlogPost.propTypes = {
           alt: PropTypes.string,
           childImageSharp: PropTypes.object,
           image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-          style: PropTypes.object
+          style: PropTypes.object,
         }),
         photographername: PropTypes.string,
-        photographerurl: PropTypes.string
-      })
-    })
-  }).isRequired
+        photographerurl: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default BlogPost;
