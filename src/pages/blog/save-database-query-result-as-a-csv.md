@@ -1,6 +1,6 @@
 ---
 templateKey: 'blog-post'
-title: 'Save database query result as a CSV'
+title: 'Save Database Query Result as a CSV'
 date: 2020-06-01T21:52:10.000Z
 description: >
   How to run a postgres query over ssh and save the result as a csv to your computer
