@@ -1,7 +1,7 @@
 ---
 templateKey: 'blog-post'
 title: 'Setting Great Key Results'
-date: 2020-06-01T21:52:10.000Z
+date: 2020-06-16T13:13:22.000Z
 description: >
   Why goal setting is hard but important
 ---

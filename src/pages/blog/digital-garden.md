@@ -1,7 +1,7 @@
 ---
 templateKey: 'blog-post'
 title: 'Digital Garden'
-date: 2020-06-01T21:52:10.000Z
+date: 2020-06-01T23:42:53.000Z
 description: >
   Planting the seeds
 ---

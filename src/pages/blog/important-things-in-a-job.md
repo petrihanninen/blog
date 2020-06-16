@@ -1,7 +1,7 @@
 ---
 templateKey: 'blog-post'
 title: 'Important Things in a Job'
-date: 2020-06-01T21:52:10.000Z
+date: 2020-06-11T11:35:41.000Z
 description: >
   What I find valuable, and why.
 ---

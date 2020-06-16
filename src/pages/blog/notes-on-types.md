@@ -1,7 +1,7 @@
 ---
 templateKey: 'blog-post'
 title: 'Notes on Types'
-date: 2020-06-01T21:52:10.000Z
+date: 2020-06-08T10:31:27.000Z
 description: >
   Some things I've learnt along the way
 ---

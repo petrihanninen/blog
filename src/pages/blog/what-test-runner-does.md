@@ -1,7 +1,7 @@
 ---
 templateKey: 'blog-post'
 title: 'What Test Runner Does'
-date: 2020-06-02T22:55:10.000Z
+date: 2020-06-02T22:55:56.000Z
 description: >
   How did I more or less figure it out
 ---

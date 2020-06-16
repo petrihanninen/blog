@@ -1,7 +1,7 @@
 ---
 templateKey: 'blog-post'
 title: 'Asynchronous Javascript'
-date: 2020-06-01T21:52:10.000Z
+date: 2020-06-05T15:51:23.000Z
 description: >
   How do Promises and async/await work?
 ---
