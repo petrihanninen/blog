@@ -44,9 +44,11 @@ Fancy hard-to-read one-liner, ladies and gentlemen:
 
 Memorising all that and all those hundreds of characters every time you want to play with some data seems stupid. Instead, save yourself some time and save this as a bash script:
 
-`get-psql-data() {
+```bash
+get-psql-data() {
   ssh SSHUSERR@ADDRESS:PORT -i PATH/TO/KEY.pem "psql -d DATABASE -h HOST -U DBUSER -c \"COPY ($1) TO STDOUT WITH CSV HEADER\"" > PATH/TO/FILE.csv
-}`
+}
+```
 
 Note $1 hiding over there instead of the demo-query we made. that tells bash script to use the first argument given. So, you can use the script like follows:
 
