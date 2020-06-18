@@ -1,6 +1,13 @@
-templateKey: 'blog-post' title: 'Testing Development on iOS' date: 2020-06-01T23:42:53.000Z description: > Wouldn’t it be cool to be able to do web dev on an iOS device?
+---
+templateKey: ’blog-post’
+title: ’Testing on Mobile’
+date: 2020-06-18T21:51:27.000Z
+description: >
+  Wouldn’t it be neat to be able to do web dev on mobile? Yes.
+---
 
-This is just a test post, which I’ve created editing the GitHub repo with an app called CodeHub. Just out of curiosity.
+
+This is just a test post, which I’ve created editing the GitHub repo some random apps. I’ll be reporting on my findings, maybe.
 
 ## Adding a subtitle
 
