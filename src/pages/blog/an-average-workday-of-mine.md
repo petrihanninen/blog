@@ -1,6 +1,6 @@
 ---
 templateKey: 'blog-post'
-title: 'What Does an "Average" Workday Look Like'
+title: 'An "Average" Workday of Mine'
 date: 2020-03-18T21:52:10.000Z
 description: >
   An overview of a day of mine, with some thoughts and commentary along the way
