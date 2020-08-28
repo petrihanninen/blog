@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, StaticQuery } from 'gatsby';
+import DadJoke from './DadJoke';
 
-const BlogRoll = props => {
+const BlogRoll = (props) => {
   const { data } = props;
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
     <>
+      <DadJoke />
       {posts &&
         posts.map(({ node: post }) => (
           <Link className="blog-roll-item" key={post.id} to={post.fields.slug}>
@@ -22,9 +24,9 @@ const BlogRoll = props => {
 BlogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array
-    })
-  }).isRequired
+      edges: PropTypes.array,
+    }),
+  }).isRequired,
 };
 
 const Roll = () => (
