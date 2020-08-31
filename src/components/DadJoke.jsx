@@ -18,12 +18,7 @@ const DadJoke = () => {
   }, []);
 
   return (
-    <div
-      href={`${DAD_JOKE_API}/api`}
-      target="_blank"
-      rel="noreferrer"
-      className="blog-roll-item"
-    >
+    <div className="blog-roll-item">
       <h2 className="post-meta">A Random Joke for You</h2>
       <p>{joke}</p>
     </div>
