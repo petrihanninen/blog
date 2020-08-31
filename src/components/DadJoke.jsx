@@ -18,7 +18,7 @@ const DadJoke = () => {
   }, []);
 
   return (
-    <a
+    <div
       href={`${DAD_JOKE_API}/api`}
       target="_blank"
       rel="noreferrer"
@@ -26,7 +26,7 @@ const DadJoke = () => {
     >
       <h2 className="post-meta">A Random Joke for You</h2>
       <p>{joke}</p>
-    </a>
+    </div>
   );
 };
 
