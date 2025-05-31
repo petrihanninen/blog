@@ -1,0 +1,63 @@
+:root {
+  --color-1: #222;
+  --color-2: #fed;
+
+  --fancy: #c0ffee;
+  --fancy-2: #222;
+
+  --text: var(--color-1);
+  --bg: var(--color-2);
+  --title: var(--fancy);
+  --title-drop: var(--fancy-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: var(--color-2);
+    --bg: var(--color-1);
+    --title: var(--fancy-2);
+    --title-drop: var(--fancy);
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+h1 {
+  --shadow-dist: 3px;
+
+  @media (prefers-color-scheme: dark) {
+    --shadow-dist: 2px;
+  }
+
+  color: var(--title);
+  font-weight: 900;
+  text-shadow:
+    var(--shadow-dist) var(--shadow-dist) 0 var(--title-drop),
+   -1px -1px 0 var(--title-drop),  
+    1px -1px 0 var(--title-drop),
+    -1px 1px 0 var(--title-drop),
+     1px 1px 0 var(--title-drop);
+
+}

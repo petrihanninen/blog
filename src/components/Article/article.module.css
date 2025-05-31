@@ -1,0 +1,33 @@
+.title {
+  all: unset;
+
+  display: block;
+  width: 100%;
+  font: inherit;
+  cursor: pointer;
+
+  position: relative;
+
+  margin: 1rem 0;
+
+  * {
+    display: inline;
+  }
+
+  &:before {
+    position: absolute;
+    transform: translate(-150%, 30%);
+  }
+
+  &[aria-expanded="true"]:before {
+    content: '👇';
+  }
+  &[aria-expanded="false"]:before {
+    content: '👉';
+  }
+}
+
+.date {
+  margin-left: 2rem;
+  opacity: 0.7;
+}
