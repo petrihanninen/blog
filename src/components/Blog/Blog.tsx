@@ -3,18 +3,16 @@
 import type { PropsWithChildren } from 'react';
 import { useState } from "react";
 
-import styles from './article.module.css';
+import styles from './blog.module.css';
+import type { Frontmatter } from '../../app/types';
 
-type ArticleProps = {
-  title: string;
-  date: Date;
+type BlogProps = {
+  frontmatter: Frontmatter;
+  slug: string;
 }
 
-const slugify = (str: string) => str.replaceAll('\s', '-').toLowerCase()
-
-export const Article: React.FC<PropsWithChildren<ArticleProps>> = ({ title, date, children }) => {
+export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ frontmatter: { title, date }, slug, children }) => {
   const [hidden, setHidden] = useState(true);
-  const slug = slugify(title)
 
   return (
     <article>
@@ -28,7 +26,7 @@ export const Article: React.FC<PropsWithChildren<ArticleProps>> = ({ title, date
         <h2>
           {title}
         </h2>
-        <span className={styles.date}>{date.toLocaleDateString()}</span>
+        {date && <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>}
       </button>
 
       <div

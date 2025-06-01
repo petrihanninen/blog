@@ -20,7 +20,7 @@
   }
 
   &[aria-expanded="true"]:before {
-    content: '👇';
+    content: '👌';
   }
   &[aria-expanded="false"]:before {
     content: '👉';

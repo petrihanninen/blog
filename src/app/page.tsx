@@ -1,14 +1,11 @@
-import { Article } from "~/components/Article/Article";
-
-import * as Foo from '../content/Foo.mdx';
-import * as Bar from '../content/Bar.mdx';
-import * as Baz from '../content/Baz.mdx';
+import { getBlogs } from './utils';
 
 import styles from './styles.module.css';
+import { Blog } from "../components/Blog/Blog";
 
-const articles = [Foo, Bar, Baz]
+export default async function Home() {
+  const blogs = await getBlogs();
 
-export default function Home() {
   return (
     <main>
       <h1>
@@ -19,7 +16,7 @@ export default function Home() {
         I write code, climb rocks, click heads and am curious about pretty much everything.
       </p>
 
-      {articles.map(article => <Article key={article.metadata.title} title={article.metadata.title} date={article.metadata.date}>{<article.default />}</Article>)}
+      {blogs.map(blog => <Blog slug={blog.slug} key={blog.slug} frontmatter={blog.frontmatter}>{blog.content}</Blog>)}
     </main>
   );
 }
