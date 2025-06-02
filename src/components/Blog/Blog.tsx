@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react';
 import { useState } from "react";
 
 import styles from './blog.module.css';
-import type { Frontmatter } from '../../app/types';
+import type { Frontmatter } from '@/app/types';
 
 type BlogProps = {
   frontmatter: Frontmatter;
