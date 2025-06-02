@@ -1,0 +1,70 @@
+---
+title: Colorful Words
+date: 2025-06-02
+lede: What are Colorful Words and how did I build the site?
+---
+
+An inspiration for building something came up as I was randomly browsing around and stumbled upon some CSS dad jokes. One was somehow related to sleepyness, waking up and the color `#c0ffee`. I can't remember the joke anymore, but that nontheless got the idea going: I'll make a library of all the colors that spell out words in some languages. As choosing colors and typography is always hard and there's rarely an objective reason to pick one, I thought maybe picking a funny word that suits the theme of the site might be an approach.
+
+You can find this thingy [here](https://colorful-words.petrihanninen.com).
+
+### Basic design
+
+I figured that I need:
+
+1. List of all the words
+2. A set of rules that check if a word is a color or vice versa
+
+I guess I'll be running into some performance issues if I do all the calculations every time user visits the page. Probably pre-parsing all the words into a list that has only the "colorful" words would be beneficial, as well as storing the data in a database, but we'll cross that bridge when we get there.
+
+### All the Words
+
+This I hoped would be a quick google search away, and the people of the internet did not dissapoint. [Dwyl](https://github.com/dwyl/start-here) has a helpful english-words [repo](https://github.com/dwyl/english-words) that has a list of all the english words. What I figured is that I'll just grab the words_alpha.txt and use it as is.
+
+### The Ruleset
+
+For any kind of 1337 type of ordeal, there tends to be flavors and more complex rules that meets the eye. For example "1" can be interpreted as i or l but using "1" as both in the same word is frowned upon. To keep things simple, I started off with this conversion table that I'm most used to. I removed characters that are valid in hex as is (eg e: '3').
+
+I might add on it as we go, we'll see. Wikipedia (obviously) has a nice, more expanded [table](https://en.wikipedia.org/wiki/Leet) for reference.
+
+```ts
+const conversionTable = {
+  i: '1',
+  r: '2',
+  s: '5',
+  g: '6',
+  t: '7',
+  o: '0',
+}
+```
+
+### Parsing
+
+Getting a color out of a word should be quite straight forward. I just check if the word is of proper length and convert all the letters into their counterpart from the conversion table. To make things even easier, I just add all valid letters to conversionTable, not just the converted ones (eg a: 'a').
+
+```ts
+const getWordColor = (word: string) => {
+  if (word.length !== 6 && word.length !== 3) {
+    return null;
+  }
+  let color = '#';
+  for (let i = 0; i < word.length; i++) {
+    const letter = conversionTable[word[i]]
+    if (!letter) {
+      return null;
+    }
+    color += letter;
+  }
+  return color;
+}
+```
+
+### Storing the values
+
+I'll just parse all the words at every build/page load from words_alpha.txt. This isn't the greatest approach but this isn't the greates site either.
+
+### Design
+
+Just show a list of boxes with the colors and their hex codes. There's probably going to be quite a few matches, so allow some sort of searching / filtering.
+
+Going forward, I probably wanna add some improved filtering options, eg by picking a color bucket "I want something green", or maybe lightness or something. Or using filters like Hue/Saturation/Lightness sliders or stuff.
