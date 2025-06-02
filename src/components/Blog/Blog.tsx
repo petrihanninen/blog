@@ -1,7 +1,7 @@
 'use client'
 
 import type { PropsWithChildren } from 'react';
-import { useState } from "react";
+import { useState } from 'react';
 
 import styles from './blog.module.css';
 import type { Frontmatter } from '@/app/types';

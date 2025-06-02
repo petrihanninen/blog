@@ -1,7 +1,7 @@
 import { getBlogs } from '@/app/utils';
 
 import styles from './styles.module.css';
-import { Blog } from "@/components/Blog/Blog";
+import { Blog } from '@/components/Blog/Blog';
 
 export default async function Home() {
   const blogs = await getBlogs();
