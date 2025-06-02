@@ -1,3 +1,11 @@
+.article {
+  margin-bottom: 3rem;
+}
+
+.lede {
+  opacity: 0.7;
+}
+
 .title {
   all: unset;
 
@@ -10,7 +18,7 @@
 
   margin: 1rem 0;
 
-  * {
+  h2 {
     display: inline;
   }
 

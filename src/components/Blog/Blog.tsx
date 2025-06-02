@@ -11,11 +11,11 @@ type BlogProps = {
   slug: string;
 }
 
-export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ frontmatter: { title, date }, slug, children }) => {
+export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ frontmatter: { title, date, lede }, slug, children }) => {
   const [hidden, setHidden] = useState(true);
 
   return (
-    <article>
+    <article className={styles.article}>
       <button
         id={`heading-${slug}`}
         className={styles.title}
@@ -27,6 +27,7 @@ export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ frontmatter: { ti
           {title}
         </h2>
         {date && <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>}
+        {lede && <p className={styles.lede}>{lede}</p>}
       </button>
 
       <div
