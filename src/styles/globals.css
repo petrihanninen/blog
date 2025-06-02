@@ -9,12 +9,14 @@
   --bg: var(--color-2);
   --title: var(--fancy);
   --title-drop: var(--fancy-2);
+  --link: var(--fancy-2);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --text: var(--color-2);
     --bg: var(--color-1);
+    --link: var(--fancy);
     --title: var(--fancy-2);
     --title-drop: var(--fancy);
   }
@@ -31,7 +33,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--link);
   text-decoration: none;
 }
 
