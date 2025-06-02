@@ -5,6 +5,7 @@ import { Blog } from "@/components/Blog/Blog";
 
 export default async function Home() {
   const blogs = await getBlogs();
+  const sortedBlogs = blogs.sort((a, b) => new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1)
 
   return (
     <main>
@@ -16,7 +17,7 @@ export default async function Home() {
         I write code, climb rocks, click heads and am curious about pretty much everything.
       </p>
 
-      {blogs.map(blog => <Blog slug={blog.slug} key={blog.slug} frontmatter={blog.frontmatter}>{blog.content}</Blog>)}
+      {sortedBlogs.map(blog => <Blog slug={blog.slug} key={blog.slug} frontmatter={blog.frontmatter}>{blog.content}</Blog>)}
     </main>
   );
 }
