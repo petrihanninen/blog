@@ -24,7 +24,7 @@
 
   &:before {
     position: absolute;
-    transform: translate(-150%, 30%);
+    transform: translateX(-150%);
   }
 
   &[aria-expanded="true"]:before {

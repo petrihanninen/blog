@@ -41,11 +41,6 @@ a {
   box-sizing: border-box;
 }
 
-main {
-  max-width: 40rem;
-  margin: 0 auto;
-}
-
 h1 {
   --shadow-dist: 3px;
 

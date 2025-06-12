@@ -8,7 +8,7 @@ export default async function Home() {
   const sortedBlogs = blogs.sort((a, b) => new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1)
 
   return (
-    <main>
+    <main className={styles.main}>
       <h1>
         Petri Hänninen
       </h1>
