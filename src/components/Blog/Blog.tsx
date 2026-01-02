@@ -26,7 +26,6 @@ export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ frontmatter: { ti
         <h2>
           {title}
         </h2>
-        {date && <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>}
         {lede && <p className={styles.lede}>{lede}</p>}
       </button>
 
