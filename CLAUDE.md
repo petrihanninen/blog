@@ -45,3 +45,21 @@ Content here...
 ### Deployment
 
 Push to `main` triggers GitHub Actions to build and push Docker image to `ghcr.io/petrihanninen/blog:latest`.
+
+## Writing Blog Posts
+
+### Process
+
+- Ideas and outlines go in `ideas/` folder as markdown files
+- Outlines typically have sections: hook, main points, closing
+- When ready to publish, move content to `src/content/` as MDX
+
+### Tone of Voice
+
+- Direct and opinionated—take a clear stance
+- Conversational but not fluffy; no filler or corporate speak
+- Personal perspective using "I" and "you"
+- Profanity is fine when it adds punch ("shitty UI", "garbage")
+- Challenge conventional thinking; don't just validate common beliefs
+- Practical and actionable—give readers something concrete
+- No excessive hedging or disclaimers
