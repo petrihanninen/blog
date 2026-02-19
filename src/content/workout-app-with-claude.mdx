@@ -1,0 +1,36 @@
+---
+title: Writing a Workout App with Claude
+draft: true
+---
+
+## Hook
+
+- An exploration of how to use Claude to write a workout app
+
+## Steps
+1. Create a new project, init git etc
+2. Create a `spec.md` file, where you describe the app
+3. Ask Claude to ask you questions and improve the spec, edit mode
+4. Ask claude to implement the spec, plan mode
+5. Answer more questions
+6. Claude suggests going to edit mode, let it implement the spec
+
+## Notes
+
+- Using a separate spec file feels like a good idea at least atm. It's a pain in the ass to just use the prompt UI to actually hit all the points you want.
+- I guess spec should be separated into sections, more to ensure you don't miss anything important
+- The level of detail heavily depends on the app and its significance.
+    - Here I'm writing a tool just for myself, which I can at any point survive without. So a complete garbage implementation is fine.
+
+## Issues
+
+- spec.md and readme.md clashed with create-next-app --&gt; probably wanna use some `tmp/` or `plan/` directory for these instead?
+- Initiating Prisma ran into errors. `P1012`. Claude seems to rely on outdated version numbers and formats. Maybe there's a sensible way to prompt into a better solution? Maybe add to global claude.md that it should curl and check the latest versions more eagerly?
+- I added `next.js` to the project spec, but I shouldn't have. I did that out of habit. Though Claude asked some clarifying questions, it wasn't really trying to proactively question my concrete decisions. This is probably good for the most part but for such brain rot spec file I should probably nudge claude to be more critical?
+- Claude didn't proactively try to typecheck/lint the end result. It ended up with a linting error. This is also something that a more properly set up vibe code environment might be able to catch, basically just add sth like "always check types and linting before you consider a task done" or sth
+
+## Success?
+
+- Yes. It took a few of hours to get things working, and part of that was figuring out how to deploy a postgresql database into my homelab kubernetes cluster. So the actual time to deploy the app was barely a couple of hours.
+- Am I completely happy with the result? No. There are stupidities in the UI, and banging my head against the prompt UI to get the pixels right is a bit of a pain. But the fact that this took 2-3 hours instead of days means that I actually did this instead of just thinking about doing it. Or deciding that it's not worth the time investment. And that's one of the most amazing points about generating software with such tools: the time investment vs value provided calculation becomes acceptable in places where previously it would not have been worth it.
+- This is an extremely low stakes project. But as long as proper guardrails and QA processes are in place, things can be done in more impactful environments. More investigations and posts to come, I guess.

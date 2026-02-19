@@ -1,0 +1,76 @@
+---
+title: I Built a Workout App in 3 Hours with Claude
+date: 2025-01-05
+lede: The economics of building software just changed. Here's what that actually looks like.
+---
+
+I've been meaning to build a simple workout tracker for months. Nothing fancy—just something to log my lifts and see progress over time. Every time I thought about it, I'd do the mental math: a weekend or two of coding, deployment setup, database schema design... and then I'd decide it wasn't worth the time investment for something so personal.
+
+Last week I finally built it. It took about three hours. Here's how.
+
+## The Process
+
+I didn't just open Claude and start prompting. That's the vibe coding equivalent of sitting down to write code without knowing what you're building. Instead, I started with a spec file.
+
+**Step 1: Create a `spec.md` file**
+
+Before touching any code, I wrote out what I actually wanted. Not in Claude's chat UI—in a proper markdown file I could edit and refine. The chat UI is a pain in the ass for anything longer than a few sentences. You can't easily restructure, you miss things, and you end up with a sprawling mess of clarifications.
+
+A spec file forces you to think through the whole thing upfront. Mine was pretty bare-bones since this was a personal tool with zero stakes:
+
+- Track exercises, sets, reps, weight
+- See history for each exercise
+- Mobile-friendly UI
+- Postgres database (I have a homelab k8s cluster to deploy to)
+
+**Step 2: Let Claude interrogate the spec**
+
+This is where it gets interesting. I asked Claude to review my spec and ask clarifying questions. Not to implement—just to poke holes.
+
+It asked about user authentication (do I need it if it's just for me?), data export, whether I wanted suggested progressions, rest timer features. Some questions I hadn't considered. Others helped me realize features I thought I wanted but actually didn't.
+
+**Step 3: Plan, then implement**
+
+With a tighter spec, I asked Claude to plan the implementation. It suggested the file structure, database schema, and component breakdown. Only after I approved the plan did I let it start writing code.
+
+This is the unsexy secret of vibe coding: the planning phase matters more than the prompting tricks.
+
+## Where Things Went Wrong
+
+Let's be real—it wasn't all smooth sailing.
+
+**I poisoned my own spec.** I added "Next.js" to the requirements out of habit. Claude asked clarifying questions about other parts of the spec, but it didn't push back on my tech choices. For a personal throwaway project, that's probably fine. But if you're building something that matters, you need to actively prompt Claude to be more critical. Something like: "Question my assumptions. If there's a simpler approach, tell me."
+
+**Outdated dependencies.** Prisma setup hit errors because Claude was working from outdated version formats. This is a known limitation—its training data has a cutoff. My fix: add a note to my global `claude.md` that it should check latest versions before installing dependencies. It's not perfect, but it helps.
+
+**No automatic quality checks.** Claude didn't run linting or type checking when it finished. The code had errors that would've been caught by a simple `pnpm check`. The solution is simple: add "always run linting and type checking before considering a task complete" to your project instructions.
+
+**File conflicts.** When I ran `create-next-app`, it clashed with my existing `spec.md` and `readme.md`. Minor annoyance, easy fix—put planning docs in a `plan/` or `tmp/` directory instead.
+
+## So Did It Work?
+
+Yes. Unambiguously yes.
+
+Is the result perfect? No. The UI has some dumb decisions I'd change if I were doing it by hand. Pixel-pushing through prompts is tedious compared to just editing CSS yourself.
+
+But here's the thing: **I actually built it.**
+
+The calculation changed. Three hours for a working app I'll use daily? That's worth it. Two weekends of careful craftsmanship for the same thing? Hard pass—I've got other shit to do.
+
+This is the real unlock with AI-assisted development. It's not that you suddenly build better software. It's that the time-vs-value equation shifts. Projects that weren't worth the investment suddenly become viable. Ideas that would've stayed in a notes app actually get built.
+
+## What I'd Do Differently
+
+For this low-stakes project, the rough edges don't matter. But if I were building something more serious:
+
+1. **Write a proper spec with sections.** Force yourself to cover all the bases—auth, data model, edge cases, deployment.
+
+2. **Prompt for skepticism.** Tell Claude to question your decisions, not just execute them.
+
+3. **Set up guardrails in `claude.md`.** Type checking, linting, version verification—make them automatic.
+
+4. **Keep planning docs separate.** Use a dedicated directory so they don't conflict with generated files.
+
+The tools are there. The productivity gains are real. You just need to be intentional about how you use them.
+
+Now if you'll excuse me, I have some deadlifts to log.

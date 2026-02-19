@@ -1,0 +1,45 @@
+---
+title: "CI/CD: The Real Bottleneck in AI-Assisted Development"
+draft: true
+---
+
+Lacking CI/CD is the reason for not getting the full value out of AI-assisted development.
+
+Transcript of a video that discusses the topic in `./ci-cd-pipeline-for-ai-2.md`
+
+Additionally, a podcast transcript that discusses software pipeline in `./ci-cd-pipeline-for-ai-1.md`. Focus on the bit that discusses how if there's a pipeline that's opimized for delivering 5 bits of output per unit of time, every single piece produces that. And if one part speeds up, the output is the same, there's just one part that can take 50 % time off.
+
+Regarding pipeline and speeding up single thing doesn't speed up the whole, I partly agree. On the other hand, when working at a logistics warehouse distributing magazines to be shipped to various stores, we had a pipeline where each individual had a screen that was green when all was fine, but if you were holding the queue, the screen went to yellow and red. Basically, there's always a single point that is the slowest, and speeding that up is the only thing that matters.
+
+My point is that it probably was true that producing code was the bottleneck, but it's not anymore. The bottleneck is now the pipeline and how long it takes from producing something that looks pretty correct to being sure it actually is.
+
+A pipeline that solves this requires two things:
+1. Good ways of recognizing prodution-ready code. Tests (especially integration and e2e), type checking, builds, automated reviews, performance metrics etc.
+2. Efficient feedback loops when something is wrong. Error monitoring, automated alerts, smoke tests, canary deployments etc.
+
+A good pipeline can be discussed in another post, just make a general note about what's needed here.
+
+---
+
+## Reference: Podcast Transcript (DevOps Paradox #338)
+
+{/* Source: https://www.youtube.com/watch?v=2CYgTgBMxrE */}
+
+Key points from the podcast:
+- If any one phase of the SDLC goes faster than the others, something else becomes the bottleneck
+- The most effective way to go fast is for a single person to be able to convert an idea into something served to users
+- Unless everything is improved, nothing is improved — if you can do double the work but bottlenecks are both left and right of you, you just have 50% free time
+- Companies tend to optimize for the things that are easy to optimize for, whether that's the constraint or not
+- AI adoption is a systems problem, not a tooling problem
+
+## Reference: Video Transcript (Dave Farley - Modern Software Engineering)
+
+{/* Source: https://www.youtube.com/watch?v=XavrebMKH2A */}
+
+Key points from the video:
+- Nyquist-Shannon sampling theorem applied to software: if you increase production frequency (via AI), you must increase feedback frequency
+- When AI produces entire features in seconds, but your feedback mechanisms haven't kept up, you're under-sampling
+- Continuous integration is your sampling strategy — run full test suite on every AI-generated change
+- Don't accept large batches of AI-generated code — work in smaller chunks, get feedback faster
+- Your pipeline needs to be fast — if it takes 30 minutes, you're not sampling at the right frequency
+- Make tests the source of truth, not manual review
