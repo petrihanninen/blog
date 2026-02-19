@@ -52,7 +52,8 @@ Push to `main` triggers GitHub Actions to build and push Docker image to `ghcr.i
 
 - Ideas and outlines go in `ideas/` folder as markdown files
 - Outlines typically have sections: hook, main points, closing
-- When ready to publish, move content to `src/content/` as MDX
+- When a post becomes a draft, move it to `src/content/` as MDX and add `draft: true` to frontmatter
+- When ready to publish, remove `draft: true` and add `date` to frontmatter
 
 ### Tone of Voice
 
