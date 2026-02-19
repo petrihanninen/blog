@@ -50,10 +50,9 @@ Push to `main` triggers GitHub Actions to build and push Docker image to `ghcr.i
 
 ### Process
 
-- Ideas and outlines go in `ideas/` folder as markdown files
-- Outlines typically have sections: hook, main points, closing
-- When a post becomes a draft, move it to `src/content/` as MDX and add `draft: true` to frontmatter
-- When ready to publish, remove `draft: true` and add `date` to frontmatter
+- All content (ideas, outlines, drafts, published posts) lives in `src/content/` as MDX files
+- Drafts have no `date` in frontmatter (they only appear with `?drafts` query param)
+- When ready to publish, add `date` to frontmatter
 
 ### Tone of Voice
 

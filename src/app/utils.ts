@@ -21,7 +21,7 @@ const getBlogBySlug = async (slug: string) => {
 }
 
 export const getBlogs = async () => {
-  const files = fs.readdirSync(contentDir)
+  const files = fs.readdirSync(contentDir).filter(file => file.endsWith('.mdx'))
   const blogs = await Promise.all(files.map(async file => await getBlogBySlug(path.parse(file).name)))
   return blogs
 }
