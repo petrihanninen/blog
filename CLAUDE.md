@@ -44,7 +44,7 @@ Content here...
 
 ### Deployment
 
-Push to `main` triggers GitHub Actions to build and push Docker image to `ghcr.io/petrihanninen/blog:latest`.
+Deployed on Vercel. Push to `main` triggers an automatic deploy to https://blog.petrihanninen.com.
 
 ## Writing Blog Posts
 
