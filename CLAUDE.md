@@ -15,6 +15,10 @@ pnpm format:write     # Auto-format code with Prettier
 
 This is a personal blog built with Next.js 16 (App Router) and TypeScript. Blog posts are MDX files compiled at build time.
 
+### Making Code Changes
+
+All new code should be committed and pushed to main after getting a green light from me, no need to use PRs here. If I tell you to do something and push to main, it means that you shouldn't ask for confirmation after.
+
 ### Content Flow
 
 1. MDX files live in `src/content/` with YAML frontmatter (`title`, `date`, optional `lede`)
@@ -53,13 +57,3 @@ Deployed on Vercel. Push to `main` triggers an automatic deploy to https://blog.
 - All content (ideas, outlines, drafts, published posts) lives in `src/content/` as MDX files
 - Drafts have no `date` in frontmatter (they only appear with `?drafts` query param)
 - When ready to publish, add `date` to frontmatter
-
-### Tone of Voice
-
-- Direct and opinionated—take a clear stance
-- Conversational but not fluffy; no filler or corporate speak
-- Personal perspective using "I" and "you"
-- Profanity is fine when it adds punch ("shitty UI", "garbage")
-- Challenge conventional thinking; don't just validate common beliefs
-- Practical and actionable—give readers something concrete
-- No excessive hedging or disclaimers
