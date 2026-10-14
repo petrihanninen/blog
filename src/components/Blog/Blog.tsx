@@ -5,19 +5,17 @@ import { useState } from 'react';
 
 type BlogProps = {
   slug: string;
-  index: number;
   title: string;
   lede?: string;
   date?: string;
 }
 
-export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ slug, index, title, lede, date, children }) => {
+export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ slug, title, lede, date, children }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <article className="post" data-open={open}>
       <div className="post-head">
-        <span className="post-index" aria-hidden>{String(index).padStart(2, '0')}</span>
         {date && <time className="post-date" dateTime={date}>{date}</time>}
         <h2 className="post-title">
           <button

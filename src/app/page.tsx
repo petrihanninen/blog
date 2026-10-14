@@ -1,6 +1,6 @@
 import { getBlogs } from '@/app/utils';
-import { resolveTheme, themes } from '@/app/themes';
 import { Blog } from '@/components/Blog/Blog';
+import { ColorPicker } from '@/components/ColorPicker/ColorPicker';
 
 const formatDate = (date: string | Date) =>
   new Date(date).toISOString().slice(0, 10);
@@ -11,7 +11,6 @@ export default async function Home({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = await searchParams;
-  const theme = resolveTheme(params.theme);
   const showDrafts = 'drafts' in params;
   const blogs = await getBlogs();
   const sortedBlogs = blogs
@@ -27,20 +26,20 @@ export default async function Home({
     });
 
   return (
-    <div className="site" data-theme={theme}>
+    <div className="site">
       <header className="site-header">
         <h1 className="site-title">Petri Hänninen</h1>
         <p className="site-lede">
           I write code, climb rocks, click heads and am curious about pretty much everything.
         </p>
+        <ColorPicker />
       </header>
 
       <main className="posts">
-        {sortedBlogs.map((blog, index) => (
+        {sortedBlogs.map(blog => (
           <Blog
             key={blog.slug}
             slug={blog.slug}
-            index={index + 1}
             title={blog.frontmatter.title}
             lede={blog.frontmatter.lede}
             date={blog.frontmatter.date ? formatDate(blog.frontmatter.date) : undefined}
@@ -54,16 +53,6 @@ export default async function Home({
         <span>Petri Hänninen</span>
         <span>{sortedBlogs.length} posts</span>
       </footer>
-
-      {process.env.NODE_ENV === 'development' && (
-        <nav className="theme-switcher">
-          {themes.map(name => (
-            <a key={name} href={`?theme=${name}`} aria-current={name === theme ? 'page' : undefined}>
-              {name}
-            </a>
-          ))}
-        </nav>
-      )}
     </div>
   );
 }

@@ -41,10 +41,10 @@ Content here...
 
 ### Styling
 
-- `src/styles/globals.css` holds the reset and the shared header/post structure
-- Each design alternative is one file in `src/styles/themes/`, scoped under `[data-theme='name']`
-- Pick a theme with `?theme=hazard|poster|blueprint|acid|riso|concrete`; the default lives in `src/app/themes.ts`
-- System fonts only, no dark mode: every theme is a fixed palette
+- One stylesheet, `src/styles/globals.css`, with the whole design driven by two CSS variables: `--bg` and `--ink`
+- The color picker in the header sets those variables, stores the choice in localStorage, and picks black or white ink by WCAG contrast (`src/components/ColorPicker/`)
+- An inline script in `src/app/layout.tsx` restores the stored color before first paint
+- System fonts only, no dark mode
 
 ### Deployment
 
