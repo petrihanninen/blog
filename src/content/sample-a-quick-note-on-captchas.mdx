@@ -1,0 +1,8 @@
+---
+title: A Quick Note on Captchas
+date: 2026-03-02
+---
+
+Note to self, mostly.
+
+If you need a captcha, do not build one. Use something like [hCaptcha](https://www.hcaptcha.com/) for anything that is not enormous, and look at [Turnstile](https://www.cloudflare.com/products/turnstile/) if the site already sits behind Cloudflare. The hard part is never the widget, it is deciding which forms actually need protecting.

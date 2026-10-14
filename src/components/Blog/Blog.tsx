@@ -3,38 +3,38 @@
 import type { PropsWithChildren } from 'react';
 import { useState } from 'react';
 
-import styles from './blog.module.css';
-import type { Frontmatter } from '@/app/types';
-
 type BlogProps = {
-  frontmatter: Frontmatter;
   slug: string;
+  index: number;
+  title: string;
+  lede?: string;
+  date?: string;
 }
 
-export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ frontmatter: { title, date, lede }, slug, children }) => {
-  const [hidden, setHidden] = useState(true);
+export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ slug, index, title, lede, date, children }) => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <article className={styles.article}>
-      <button
-        id={`heading-${slug}`}
-        className={styles.title}
-        aria-expanded={!hidden}
-        aria-controls={`content-${slug}`}
-        onClick={() => setHidden(!hidden)}
-      >
-        <h2>
-          {title}
+    <article className="post" data-open={open}>
+      <div className="post-head">
+        <span className="post-index" aria-hidden>{String(index).padStart(2, '0')}</span>
+        {date && <time className="post-date" dateTime={date}>{date}</time>}
+        <h2 className="post-title">
+          <button
+            type="button"
+            className="post-toggle"
+            aria-expanded={open}
+            aria-controls={`content-${slug}`}
+            onClick={() => setOpen(!open)}
+          >
+            {title}
+          </button>
         </h2>
-        {lede && <p className={styles.lede}>{lede}</p>}
-      </button>
+        {lede && <p className="post-lede">{lede}</p>}
+        <span className="post-marker" aria-hidden />
+      </div>
 
-      <div
-        role="region"
-        hidden={hidden}
-        id={`content-${slug}`}
-        aria-controls={`heading-${slug}`}
-      >
+      <div className="post-body" id={`content-${slug}`} hidden={!open}>
         {children}
       </div>
     </article>

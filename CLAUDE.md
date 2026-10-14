@@ -41,10 +41,10 @@ Content here...
 
 ### Styling
 
-- CSS custom properties in `src/styles/globals.css`
-- CSS Modules for component styles
-- Dark mode via `prefers-color-scheme: dark`
-- Font: Atkinson Hyperlegible
+- `src/styles/globals.css` holds the reset and the shared header/post structure
+- Each design alternative is one file in `src/styles/themes/`, scoped under `[data-theme='name']`
+- Pick a theme with `?theme=hazard|poster|blueprint|acid|riso|concrete`; the default lives in `src/app/themes.ts`
+- System fonts only, no dark mode: every theme is a fixed palette
 
 ### Deployment
 
