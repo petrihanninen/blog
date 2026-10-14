@@ -1,0 +1,45 @@
+---
+title: Self-Hosting Was Fun Until It Wasn't
+date: 2025-09-08
+lede: Three years of running my own cluster, and what finally made me pull the plug.
+---
+
+For three years this blog, a few side projects and an embarrassing amount of monitoring ran on a small Kubernetes cluster in my hallway closet. Three mini PCs, a cheap switch, and a lot of YAML.
+
+I learned more from that closet than from any job. I also spent more weekends on it than I would like to admit.
+
+### The good part
+
+Everything was mine. I understood every layer, from the kernel to the ingress controller. When something broke I could fix it, and something broke often enough that I got good at fixing things. That experience paid for itself many times over at work.
+
+The deployment for this blog looked roughly like this:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: blog
+          image: registry.local/blog:latest
+          ports:
+            - containerPort: 3000
+```
+
+Forty more lines for the service, the ingress, the certificate and the secrets. Multiply by every project.
+
+### The bad part
+
+The closet does not care that it is Sunday. A power cut at 03:00 meant a dead etcd quorum and a morning of recovery. A kernel update meant a node that would not rejoin. My partner learned the phrase "is the cluster down again" and used it more than I would like.
+
+The honest accounting: the cluster cost me roughly a weekend a month. For a blog with a few hundred readers.
+
+### What I moved to
+
+A managed platform that deploys from a `git push`. The entire configuration is a single file and I have not touched it since. I lost the ability to tinker and gained all of my weekends back.
+
+I do not regret the three years. I would not do them again either. The closet is now just a closet, and I am surprisingly fine with that.
