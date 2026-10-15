@@ -1,7 +1,7 @@
 'use client'
 
 import type { KeyboardEvent, PointerEvent } from 'react';
-import { useState, useSyncExternalStore } from 'react';
+import { useId, useRef, useState, useSyncExternalStore } from 'react';
 
 import {
   getServerSnapshot,
@@ -22,7 +22,8 @@ const arrowMoves: Record<string, [number, number]> = {
   ArrowDown: [0, -1],
 };
 
-export const ColorPicker = () => {
+const Palette = () => {
+  const id = useId();
   const { hex, hue } = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const [open, setOpen] = useState(false);
   const { s, v } = hexToHsv(hex);
@@ -44,12 +45,12 @@ export const ColorPicker = () => {
   };
 
   return (
-    <div className="color-picker">
-      <span className="color-picker-label" id="color-picker-label">
+    <div className="palette">
+      <span className="color-picker-label" id={`${id}-label`}>
         Pick a color
       </span>
 
-      <div className="swatches" role="group" aria-labelledby="color-picker-label">
+      <div className="swatches" role="group" aria-labelledby={`${id}-label`}>
         {presets.map(preset => (
           <button
             key={preset.hex}
@@ -68,13 +69,13 @@ export const ColorPicker = () => {
           data-selected={!isPreset}
           aria-label="Custom color"
           aria-expanded={open}
-          aria-controls="custom-color"
+          aria-controls={`${id}-custom`}
           onClick={() => setOpen(!open)}
         />
       </div>
 
       {open && (
-        <div className="custom-color" id="custom-color">
+        <div className="custom-color" id={`${id}-custom`}>
           <div
             className="sv-area"
             role="slider"
@@ -113,6 +114,42 @@ export const ColorPicker = () => {
           <output className="hex">{hex}</output>
         </div>
       )}
+    </div>
+  );
+};
+
+export const ColorPicker = () => {
+  const dialog = useRef<HTMLDialogElement>(null);
+
+  return (
+    <div className="color-picker">
+      <div className="color-picker-inline">
+        <Palette />
+      </div>
+
+      <button
+        type="button"
+        className="swatch swatch-custom color-picker-trigger"
+        aria-label="Pick a color"
+        aria-haspopup="dialog"
+        onClick={() => dialog.current?.showModal()}
+      />
+
+      <dialog
+        ref={dialog}
+        className="color-dialog"
+        aria-label="Pick a color"
+        onClick={event => {
+          if (event.target === event.currentTarget) event.currentTarget.close();
+        }}
+      >
+        <div className="color-dialog-body">
+          <Palette />
+          <button type="button" className="color-dialog-close" onClick={() => dialog.current?.close()}>
+            Done
+          </button>
+        </div>
+      </dialog>
     </div>
   );
 };

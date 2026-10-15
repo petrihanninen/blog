@@ -66,9 +66,70 @@ video {
 
 .color-picker {
   margin-top: 2rem;
+}
+
+.palette {
   display: grid;
   gap: 1rem;
   justify-items: start;
+}
+
+.color-picker-trigger {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .color-picker-inline {
+    display: none;
+  }
+
+  .color-picker-trigger {
+    display: block;
+    border-radius: 50%;
+  }
+}
+
+.color-dialog {
+  width: min(calc(100% - 2rem), 24rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 4px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.color-dialog::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
+
+.color-dialog-body {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.25rem;
+}
+
+.color-dialog .custom-color {
+  width: 100%;
+}
+
+.color-dialog-close {
+  justify-self: end;
+  padding: 0.5rem 1rem;
+  border: 4px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.color-dialog-close:focus-visible {
+  outline: 4px dashed var(--ink);
+  outline-offset: 4px;
 }
 
 .color-picker-label,
