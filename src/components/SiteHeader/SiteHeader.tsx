@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { getPageSlugs } from '@/app/utils';
 import { ColorPicker } from '@/components/ColorPicker/ColorPicker';
 
 export const SiteHeader = () => (
@@ -11,7 +12,12 @@ export const SiteHeader = () => (
       I write code, climb rocks, click heads and am curious about pretty much everything.
     </p>
     <nav className="site-nav">
-      <Link href="/about">About</Link>
+      <Link href="/">Home</Link>
+      {getPageSlugs().map(slug => (
+        <Link key={slug} href={`/${slug}`}>
+          {slug.replaceAll('-', ' ')}
+        </Link>
+      ))}
     </nav>
     <ColorPicker />
   </header>

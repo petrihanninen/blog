@@ -25,7 +25,7 @@ All new code should be committed and pushed to main after getting a green light 
 2. `getBlogs()` in `src/app/utils.ts` reads all post MDX files and compiles them with `next-mdx-remote/rsc`
 3. Home page (`src/app/page.tsx`) renders posts sorted by date (newest first)
 4. `<Blog>` component (`src/components/Blog/Blog.tsx`) is a client component that handles expand/collapse UI
-5. Standalone pages (e.g. About) live in `src/content/pages/` with frontmatter `title` and are served at `/<slug>` by `src/app/[page]/page.tsx`. They are never listed as posts. Add a link to `src/components/SiteHeader/SiteHeader.tsx` for new pages
+5. Standalone pages (e.g. About) live in `src/content/pages/` with frontmatter `title` and are served at `/<slug>` by `src/app/[page]/page.tsx`. They are never listed as posts. The header nav links to every page automatically
 
 ### Adding a Blog Post
 
