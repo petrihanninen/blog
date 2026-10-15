@@ -21,14 +21,15 @@ All new code should be committed and pushed to main after getting a green light 
 
 ### Content Flow
 
-1. MDX files live in `src/content/` with YAML frontmatter (`title`, `date`, optional `lede`)
-2. `getBlogs()` in `src/app/utils.ts` reads all MDX files and compiles them with `next-mdx-remote/rsc`
+1. Blog posts live in `src/content/posts/` with YAML frontmatter (`title`, `date`, optional `lede`)
+2. `getBlogs()` in `src/app/utils.ts` reads all post MDX files and compiles them with `next-mdx-remote/rsc`
 3. Home page (`src/app/page.tsx`) renders posts sorted by date (newest first)
 4. `<Blog>` component (`src/components/Blog/Blog.tsx`) is a client component that handles expand/collapse UI
+5. Standalone pages (e.g. About) live in `src/content/pages/` with frontmatter `title` and are served at `/<slug>` by `src/app/[page]/page.tsx`. They are never listed as posts. Add a link to `src/components/SiteHeader/SiteHeader.tsx` for new pages
 
 ### Adding a Blog Post
 
-Create `src/content/my-post.mdx`:
+Create `src/content/posts/my-post.mdx`:
 ```mdx
 ---
 title: Post Title
@@ -54,6 +55,6 @@ Deployed on Vercel. Push to `main` triggers an automatic deploy to https://blog.
 
 ### Process
 
-- All content (ideas, outlines, drafts, published posts) lives in `src/content/` as MDX files
+- All posts (ideas, outlines, drafts, published posts) live in `src/content/posts/` as MDX files
 - Drafts have no `date` in frontmatter (they only appear with `?drafts` query param)
 - When ready to publish, add `date` to frontmatter

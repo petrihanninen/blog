@@ -32,7 +32,7 @@ export const Blog: React.FC<PropsWithChildren<BlogProps>> = ({ slug, title, lede
         <span className="post-marker" aria-hidden />
       </div>
 
-      <div className="post-body" id={`content-${slug}`} hidden={!open}>
+      <div className="post-body prose" id={`content-${slug}`} hidden={!open}>
         {children}
       </div>
     </article>

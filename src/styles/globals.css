@@ -56,12 +56,39 @@ video {
   overflow-wrap: anywhere;
 }
 
+.site-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .site-lede {
   margin: 0;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 700;
   line-height: 1.2;
   max-width: 30em;
+}
+
+.site-nav {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+.site-nav a:hover {
+  background: var(--ink);
+  color: var(--bg);
 }
 
 .color-picker {
@@ -340,54 +367,54 @@ video {
   padding: 1.5rem;
 }
 
-.post-body > :first-child {
+.prose > :first-child {
   margin-top: 0;
 }
 
-.post-body > :last-child {
+.prose > :last-child {
   margin-bottom: 0;
 }
 
-.post-body :is(p, ul, ol, blockquote) {
+.prose :is(p, ul, ol, blockquote) {
   max-width: 65ch;
   margin: 0 0 1em;
 }
 
-.post-body :is(ul, ol) {
+.prose :is(ul, ol) {
   padding-left: 1.5em;
 }
 
-.post-body h3 {
+.prose h3 {
   margin: 2rem 0 0.5rem;
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.post-body a {
+.prose a {
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 3px;
 }
 
-.post-body a:hover {
+.prose a:hover {
   background: var(--ink);
   color: var(--bg);
 }
 
-.post-body blockquote {
+.prose blockquote {
   border-left: 8px solid var(--ink);
   margin: 1.5rem 0;
   padding-left: 1rem;
   font-weight: 700;
 }
 
-.post-body code {
+.prose code {
   font-family: var(--mono);
   font-size: 0.9em;
 }
 
-.post-body pre {
+.prose pre {
   overflow-x: auto;
   margin: 1.5em 0;
   padding: 1rem;
@@ -396,8 +423,21 @@ video {
   line-height: 1.4;
 }
 
-.post-body pre code {
+.prose pre code {
   font-size: inherit;
+}
+
+.page {
+  flex: 1;
+}
+
+.page-title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .site-footer {

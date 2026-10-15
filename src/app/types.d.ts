@@ -4,3 +4,6 @@ export type Frontmatter = {
   date?: string;
 }
 
+export type PageFrontmatter = {
+  title: string;
+}

@@ -2,27 +2,32 @@ import fs from 'fs'
 import path from 'path'
 import { compileMDX } from 'next-mdx-remote/rsc'
 
-import type { Frontmatter } from './types'
+import type { Frontmatter, PageFrontmatter } from './types'
 
 const contentDir = path.join(process.cwd(), 'src/content')
+const postsDir = path.join(contentDir, 'posts')
+const pagesDir = path.join(contentDir, 'pages')
 
-const getBlogBySlug = async (slug: string) => {
-  const filePath = path.join(contentDir, `${slug}.mdx`)
-  const fileContent = fs.readFileSync(filePath, 'utf-8')
-  const { frontmatter, content } = await compileMDX<Frontmatter>({
-    source: fileContent,
+const listSlugs = (dir: string) => {
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .filter(file => file.endsWith('.mdx'))
+    .map(file => path.parse(file).name)
+}
+
+const compileFile = async <T extends Record<string, unknown>>(dir: string, slug: string) => {
+  const source = fs.readFileSync(path.join(dir, `${slug}.mdx`), 'utf-8')
+  const { frontmatter, content } = await compileMDX<T>({
+    source,
     options: { parseFrontmatter: true },
   })
-  return {
-    frontmatter,
-    content,
-    slug
-  }
+  return { frontmatter, content, slug }
 }
 
-export const getBlogs = async () => {
-  if (!fs.existsSync(contentDir)) return []
-  const files = fs.readdirSync(contentDir).filter(file => file.endsWith('.mdx'))
-  const blogs = await Promise.all(files.map(async file => await getBlogBySlug(path.parse(file).name)))
-  return blogs
-}
+export const getBlogs = () =>
+  Promise.all(listSlugs(postsDir).map(slug => compileFile<Frontmatter>(postsDir, slug)))
+
+export const getPageSlugs = () => listSlugs(pagesDir)
+
+export const getPage = (slug: string) => compileFile<PageFrontmatter>(pagesDir, slug)

@@ -1,6 +1,6 @@
 import { getBlogs } from '@/app/utils';
 import { Blog } from '@/components/Blog/Blog';
-import { ColorPicker } from '@/components/ColorPicker/ColorPicker';
+import { SiteHeader } from '@/components/SiteHeader/SiteHeader';
 
 const formatDate = (date: string | Date) =>
   new Date(date).toISOString().slice(0, 10);
@@ -27,13 +27,7 @@ export default async function Home({
 
   return (
     <div className="site">
-      <header className="site-header">
-        <h1 className="site-title">Petri Hänninen</h1>
-        <p className="site-lede">
-          I write code, climb rocks, click heads and am curious about pretty much everything.
-        </p>
-        <ColorPicker />
-      </header>
+      <SiteHeader />
 
       <main className="posts">
         {sortedBlogs.map(blog => (
