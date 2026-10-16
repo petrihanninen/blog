@@ -1,5 +1,6 @@
 import { getBlogs } from '@/app/utils';
 import { Blog } from '@/components/Blog/Blog';
+import { Posts } from '@/components/Posts/Posts';
 import { SiteHeader } from '@/components/SiteHeader/SiteHeader';
 
 const formatDate = (date: string | Date) =>
@@ -29,7 +30,7 @@ export default async function Home({
     <div className="site">
       <SiteHeader />
 
-      <main className="posts">
+      <Posts>
         {sortedBlogs.map(blog => (
           <Blog
             key={blog.slug}
@@ -41,7 +42,7 @@ export default async function Home({
             {blog.content}
           </Blog>
         ))}
-      </main>
+      </Posts>
 
       <footer className="site-footer">
         <span>Petri Hänninen</span>

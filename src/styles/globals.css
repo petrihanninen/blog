@@ -289,6 +289,9 @@ video {
 
 .post-head {
   position: relative;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas:
@@ -349,22 +352,61 @@ video {
 .post-marker {
   grid-area: marker;
   align-self: center;
-  font-size: 3rem;
-  font-weight: 900;
-  line-height: 1;
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
-.post-marker::before {
-  content: '+';
+.post-marker::before,
+.post-marker::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 6px;
+  margin-top: -3px;
+  background: currentColor;
+  transition: transform 300ms ease;
 }
 
-.post[data-open='true'] .post-marker::before {
-  content: '−';
+.post-marker::after {
+  transform: rotate(90deg);
+}
+
+.post[data-open='true'] .post-marker::after {
+  transform: rotate(0deg);
 }
 
 .post-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 350ms ease,
+    opacity 250ms ease;
+}
+
+.post[data-open='true'] .post-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.post-body-clip {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.post-body-inner {
   border-top: 4px solid var(--ink);
   padding: 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-head,
+  .post-marker::before,
+  .post-marker::after,
+  .post-body {
+    transition: none;
+  }
 }
 
 .prose > :first-child {
