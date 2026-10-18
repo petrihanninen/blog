@@ -27,7 +27,9 @@ export default async function Page({ params }: Props) {
       </main>
 
       <footer className="site-footer">
-        <span>Petri Hänninen</span>
+        <span>
+          Petri Hänninen / <a href="https://github.com/petrihanninen">GitHub</a>
+        </span>
       </footer>
     </div>
   );

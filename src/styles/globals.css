@@ -79,14 +79,16 @@ video {
   text-transform: uppercase;
 }
 
-.site-nav a {
+.site-nav a,
+.site-footer a {
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 3px;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-footer a:hover {
   background: var(--ink);
   color: var(--bg);
 }

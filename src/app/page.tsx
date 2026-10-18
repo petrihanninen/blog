@@ -45,7 +45,9 @@ export default async function Home({
       </Posts>
 
       <footer className="site-footer">
-        <span>Petri Hänninen</span>
+        <span>
+          Petri Hänninen / <a href="https://github.com/petrihanninen">GitHub</a>
+        </span>
         <span>{sortedBlogs.length} posts</span>
       </footer>
     </div>
