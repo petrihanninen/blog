@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Making Code Changes
+
+After you're done with any changes, always rebase, merge and push to main and don't create a PR unless I say otherwise.
+
 ## Commands
 
 ```bash
@@ -14,10 +18,6 @@ pnpm format:write     # Auto-format code with Prettier
 ## Architecture
 
 This is a personal blog built with Next.js 16 (App Router) and TypeScript. Blog posts are MDX files compiled at build time.
-
-### Making Code Changes
-
-All new code should be committed and pushed to main after getting a green light from me, no need to use PRs here. If I tell you to do something and push to main, it means that you shouldn't ask for confirmation after.
 
 ### Content Flow
 
