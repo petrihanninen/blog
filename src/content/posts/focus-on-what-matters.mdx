@@ -1,0 +1,33 @@
+---
+date: 2026-10-22
+title: How Much Will "More Code" Actually Have an Impact on Your Outcomes?
+lede: Adding more and more features, fixes, refactors or rewrites is easier than ever, but are there any benefits to be reaped from that or is it just more of nothing
+---
+
+We are all pushing out more code than ever before. Finally you get to create all the features from your icebox. Fix all the minor, tiny and nano bugs that have been waiting for resolution for ages. Refactor the annoying functions and modules that have bothered you since the "Initial commit". Rewrite everything in Rust.
+
+But how much do all those things bring value to your users?
+
+A Life Engineered did an amazing [interview with Demetri Spanos](https://www.youtube.com/watch?v=DF5M5CJi9sM). In the interview, when asked about us now being able to have agents go through hundreds and thousands of Jira tickets from the backlog and having projects essentially with zero tech debt, Demetri asks "why were they in the backlog" and answers his own question by "because they didn't matter very much [as] you always had something more important to do".
+
+From what I know of things that have been on the backlog for ages, I very much agree.
+
+## Calculating the Diminishing Impact
+
+Going further, he points out that if you have a list of 30 items you want done but have resources for 10, you will try your best to choose the most impactful 10. Then, getting to 15 or 20 actually isn't double the impact on your users but way less.
+
+I think this point warrants emphasizing, so let's calculate this out.
+
+Let's estimate that ordered by impact, your list of 30 will have a decreasing impact of 1/n * 100. Then, the first item will get 100 points, second 50, third 33 and so on. 30th item will have a score of 3.
+
+The total sum of all 30 items will then be (1/1 + 1/2 + 1/3 + ... + 1/30) * 100 = 399. Accomplishing the highest-impact item on the list gets you 25 % there. To have half of the available impact, you need to achieve just 4 items (52 %). First 10 items give you 73 % of the results, so nearly 3/4.
+
+And I think here the impact calculation is quite generous. If we go with something like 1/fibonacci(n), you are at 99 % already on item number 9. Or 1/2^n gives you 99 % at item 7. No matter how you decide to calculate this, assuming there is any decay on the value you provide as you go down the list, I think it's pretty clear that getting to the item #18347 on the Jira board that was created when either of the Bushes was president will probably not make your business the next Unicorn.
+
+## Do Only the Valuable Stuff
+
+You still really need to consider what are the few things that actually create the most value and focus your efforts on those. Your users aren't there for the long list of whatever features but the few things that work well.
+
+The apps and SaaS I find myself replacing most eagerly aren't the small and simple things but the apps that try to pack in everything and the kitchen sink. If I want to check the weather, I do not want to check local news. If I want to log my macros, I don't want to learn 10 new ways to cook broccoli. If I want to call mom, I don't want to also check out guitar tabs. And NONE OF THESE APPS NEED A GOD DAMN BUILT-IN SOCIAL MEDIA PLATFORM. /rant
+
+Focus on what matters and your users will thank you.
